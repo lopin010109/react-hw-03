@@ -155,7 +155,7 @@ function App() {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault(); // 關閉 form onSubmit 預設事件 避免網頁刷新
-      const { data } = axios.post(`${API_BASE}/admin/signin`, formData);
+      const { data } = await axios.post(`${API_BASE}/admin/signin`, formData);
       // console.log('singIn', data);
       const { token, expired } = data;
       document.cookie = `hexToken=${token};expires=${new Date(expired)};`;
